@@ -16,11 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from lesson_1_2.views import omlet, pasta, buter
+from lesson_1_2.views import  dish_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('omlet/', omlet),
-    path('pasta/', pasta),
-    path('buter/', buter),
+    path('<dish>/', dish_view, name='dish'),
+
 ]

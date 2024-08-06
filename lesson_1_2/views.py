@@ -19,7 +19,7 @@ DATA = {
     },
 }
 
-def omlet(request):
+def dish_view(request, dish):
     servings = request.GET.get("servings")
     context = {
         'recipe': {
@@ -27,51 +27,14 @@ def omlet(request):
     }
     if servings != None:
         for k, v in DATA.items():
-            if k == "omlet":
+            if k == dish:
                 for a, b in v.items():
                     context["recipe"][a] = b * int(servings)
         return render(request, "demo.html", context)
     else:
         for k, v in DATA.items():
-            if k == "omlet":
-                for a, b in v.items():
-                    context["recipe"][a] = b
-        return render(request, "demo.html", context)
-def pasta(request):
-    servings = request.GET.get("servings")
-    context = {
-        'recipe': {
-        }
-    }
-    if servings != None:
-        for k, v in DATA.items():
-            if k == "pasta":
-                for a, b in v.items():
-                    context["recipe"][a] = b * int(servings)
-        return render(request, "demo.html", context)
-    else:
-        for k, v in DATA.items():
-            if k == "pasta":
+            if k == dish:
                 for a, b in v.items():
                     context["recipe"][a] = b
         return render(request, "demo.html", context)
 
-def buter(request):
-    servings = request.GET.get("servings")
-    context = {
-        'recipe': {
-        }
-    }
-    if servings != None:
-        for k, v in DATA.items():
-            if k == "buter":
-                for a, b in v.items():
-                    context["recipe"][a] = b * int(servings)
-        return render(request, "demo.html", context)
-    else:
-        for k, v in DATA.items():
-            if k == "buter":
-                for a, b in v.items():
-                    context["recipe"][a] = b
-        return render(request, "demo.html", context)
-    
